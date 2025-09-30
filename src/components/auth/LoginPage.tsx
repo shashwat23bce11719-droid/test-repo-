@@ -6,7 +6,7 @@ import { Label } from '../ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 import { AuthContext } from '../../App';
-import { toast } from "sonner";
+import { toast } from 'sonner@2.0.3';
 import { Mail, Lock, ArrowLeft } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { useLanguage } from '../i18n/LanguageContext';
