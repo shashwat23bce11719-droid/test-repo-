@@ -9,7 +9,7 @@ import { Input } from '../ui/input';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
 import { BookOpen, Clock, Trophy, MessageCircle, Calendar, CircleCheck as CheckCircle, CircleAlert as AlertCircle, Plus, GraduationCap } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { studentAPI } from '../../services/api';
 
 export function StudentDashboardHome() {

@@ -11,7 +11,7 @@ import { Separator } from '../ui/separator';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { FileText, Download, Eye, Sparkles, Settings, BookOpen, Upload, Type, LayoutTemplate, Plus, X, Paperclip, Send } from 'lucide-react';
 import { teacherAPI } from '../../services/api';
 

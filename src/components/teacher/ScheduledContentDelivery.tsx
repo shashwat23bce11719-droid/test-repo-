@@ -26,7 +26,7 @@ import {
   TabsTrigger,
 } from "../ui/tabs";
 import { Checkbox } from "../ui/checkbox";
-import { toast } from "sonner@2.0.3";
+import { toast } from "sonner";
 import {
   Calendar,
   Clock,

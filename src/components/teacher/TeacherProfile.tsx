@@ -8,7 +8,7 @@ import { Textarea } from '../ui/textarea';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Badge } from '../ui/badge';
 import { Separator } from '../ui/separator';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { User, Mail, GraduationCap, BookOpen, Save, Camera } from 'lucide-react';
 
 export function TeacherProfile() {

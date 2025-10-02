@@ -6,8 +6,8 @@ import { LogOut, User } from 'lucide-react';
 import { LanguageSelector } from '../i18n/LanguageSelector';
 import { useLanguage } from '../i18n/LanguageContext';
 import { authAPI } from '../../services/api';
-import { toast } from 'sonner@2.0.3';
-import sahayakLogo from 'figma:asset/ee34849bbf5032b758a6d0077d24954519944451.png';
+import { toast } from 'sonner';
+import sahayakLogo from '../../assets/ee34849bbf5032b758a6d0077d24954519944451.png';
 
 export function Navbar() {
   const { isAuthenticated, user, logout } = React.useContext(AuthContext);

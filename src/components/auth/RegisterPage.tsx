@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { AuthContext } from '../../App';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { User, Mail, Lock, Phone, GraduationCap, ArrowLeft } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { useLanguage } from '../i18n/LanguageContext';

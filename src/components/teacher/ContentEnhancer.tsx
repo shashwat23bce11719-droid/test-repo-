@@ -7,7 +7,7 @@ import { Badge } from '../ui/badge';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { Sparkles, Upload, FileText, Download, RefreshCw, BookOpen, File, X, Send, Share, Settings } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
@@ -286,25 +286,25 @@ This content has been enhanced using AI to be more suitable for ${audience}. The
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 fade-in">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-6 rounded-xl glass-effect border-2 border-primary/20 shadow-xl">
         <div>
-          <h1 className="text-3xl font-bold">Content Enhancer</h1>
+          <h1 className="text-3xl font-bold animate-gradient-text">Content Enhancer</h1>
           <p className="text-muted-foreground mt-1">
             Upload files or add content to enhance with AI-powered improvements
           </p>
         </div>
-        <div className="flex items-center gap-2">
-          <Badge variant="secondary" className="flex items-center gap-1">
+        <div className="flex items-center gap-2 flex-wrap">
+          <Badge variant="secondary" className="flex items-center gap-1 shadow-md animate-pulse-color">
             <Sparkles className="h-3 w-3" />
             AI Powered
           </Badge>
-          <Badge variant="outline" className="flex items-center gap-1">
+          <Badge variant="outline" className="flex items-center gap-1 border-primary/30 shadow-md animate-pulse-color">
             <File className="h-3 w-3" />
             Multi-Format Support
           </Badge>
-          <Badge variant="outline" className="flex items-center gap-1">
+          <Badge variant="outline" className="flex items-center gap-1 border-primary/30 shadow-md animate-pulse-color">
             <Send className="h-3 w-3" />
             Quick Publishing
           </Badge>
@@ -320,10 +320,10 @@ This content has been enhanced using AI to be more suitable for ${audience}. The
         {/* Upload & Input Tab */}
         <TabsContent value="upload" className="space-y-6">
           <div className="grid lg:grid-cols-2 gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Upload className="h-5 w-5" />
+            <Card className="glass-effect border-2 border-primary/20 shadow-xl hover-lift transition-all duration-300">
+              <CardHeader className="border-b-2 border-primary/10">
+                <CardTitle className="flex items-center gap-2 animate-gradient-text">
+                  <Upload className="h-5 w-5 animate-breathe" />
                   File Upload
                 </CardTitle>
                 <CardDescription>
@@ -392,10 +392,10 @@ This content has been enhanced using AI to be more suitable for ${audience}. The
               </CardContent>
             </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <BookOpen className="h-5 w-5" />
+            <Card className="glass-effect border-2 border-primary/20 shadow-xl hover-lift transition-all duration-300">
+              <CardHeader className="border-b-2 border-primary/10">
+                <CardTitle className="flex items-center gap-2 animate-gradient-text">
+                  <BookOpen className="h-5 w-5 animate-breathe" />
                   Manual Input
                 </CardTitle>
                 <CardDescription>
@@ -438,10 +438,10 @@ This content has been enhanced using AI to be more suitable for ${audience}. The
         {/* Enhance Content Tab */}
         <TabsContent value="enhance" className="space-y-6">
           <div className="grid lg:grid-cols-2 gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Settings className="h-5 w-5" />
+            <Card className="glass-effect border-2 border-primary/20 shadow-xl hover-lift transition-all duration-300">
+              <CardHeader className="border-b-2 border-primary/10">
+                <CardTitle className="flex items-center gap-2 animate-gradient-text">
+                  <Settings className="h-5 w-5 animate-breathe" />
                   Enhancement Settings
                 </CardTitle>
                 <CardDescription>
@@ -512,10 +512,10 @@ This content has been enhanced using AI to be more suitable for ${audience}. The
             </Card>
 
             {enhancedContent ? (
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Sparkles className="h-5 w-5" />
+              <Card className="glass-effect border-2 border-primary/20 shadow-xl hover-lift transition-all duration-300">
+                <CardHeader className="border-b-2 border-primary/10">
+                  <CardTitle className="flex items-center gap-2 animate-gradient-text">
+                    <Sparkles className="h-5 w-5 animate-breathe" />
                     Enhanced Content Preview
                   </CardTitle>
                   <CardDescription>
@@ -561,9 +561,9 @@ This content has been enhanced using AI to be more suitable for ${audience}. The
                 </CardContent>
               </Card>
             ) : (
-              <Card>
+              <Card className="glass-effect border-2 border-primary/20 shadow-xl">
                 <CardContent className="flex flex-col items-center justify-center py-12">
-                  <Sparkles className="h-12 w-12 text-muted-foreground mb-4" />
+                  <Sparkles className="h-12 w-12 text-muted-foreground mb-4 animate-float" />
                   <h3 className="font-medium text-lg mb-2">No Enhanced Content Yet</h3>
                   <p className="text-muted-foreground text-center">
                     Configure your enhancement settings and click "Enhance Content" to see AI-powered improvements.

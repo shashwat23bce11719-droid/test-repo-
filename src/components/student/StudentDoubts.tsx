@@ -5,7 +5,7 @@ import { Textarea } from '../ui/textarea';
 import { Input } from '../ui/input';
 import { MessageCircle, Send, Bot } from 'lucide-react';
 import { studentAPI } from '../../services/api';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 export function StudentDoubts() {
   const [question, setQuestion] = React.useState('');

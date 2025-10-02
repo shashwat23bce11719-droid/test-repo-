@@ -1,6 +1,6 @@
 :root {
   --font-size: 16px;
-  --background: #fafbff;
+  --background: #f8f9fd;
   --foreground: #1a1b3a;
   --card: #ffffff;
   --card-foreground: #1a1b3a;
@@ -8,16 +8,16 @@
   --popover-foreground: #1a1b3a;
   --primary: #6366f1;
   --primary-foreground: #ffffff;
-  --secondary: #f1f2ff;
+  --secondary: #e8eaf6;
   --secondary-foreground: #1a1b3a;
-  --muted: #f8f9ff;
+  --muted: #f3f4f8;
   --muted-foreground: #6b7280;
-  --accent: #f1f2ff;
+  --accent: #e8eaf6;
   --accent-foreground: #1a1b3a;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #e5e7eb;
-  --input: #e5e7eb;
+  --border: #d1d5db;
+  --input: #d1d5db;
   --input-background: #ffffff;
   --switch-background: #6366f1;
   --font-weight-medium: 500;
@@ -28,14 +28,14 @@
   --chart-3: #06b6d4;
   --chart-4: #10b981;
   --chart-5: #f59e0b;
-  --radius: 0.5rem;
+  --radius: 0.75rem;
   --sidebar: #ffffff;
   --sidebar-foreground: #1a1b3a;
   --sidebar-primary: #6366f1;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f1f2ff;
+  --sidebar-accent: #e8eaf6;
   --sidebar-accent-foreground: #1a1b3a;
-  --sidebar-border: #e5e7eb;
+  --sidebar-border: #d1d5db;
   --sidebar-ring: #6366f1;
 }
 
@@ -99,7 +99,8 @@
 
   body {
     @apply bg-background text-foreground;
-    background: linear-gradient(135deg, #fafbff 0%, #f1f2ff 50%, #e0e7ff 100%);
+    background: linear-gradient(135deg, #f8f9fd 0%, #e8eaf6 50%, #dfe3f5 100%);
+    background-attachment: fixed;
     min-height: 100vh;
   }
 
@@ -164,13 +165,14 @@
 
   /* Enhanced glass effect with 3D depth */
   .glass-effect {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(99, 102, 241, 0.2);
-    box-shadow: 
-      0 8px 32px rgba(99, 102, 241, 0.1),
-      0 1px 0 rgba(255, 255, 255, 0.8) inset,
-      0 -1px 0 rgba(99, 102, 241, 0.1) inset;
+    border: 2px solid rgba(99, 102, 241, 0.15);
+    box-shadow:
+      0 10px 40px rgba(99, 102, 241, 0.12),
+      0 2px 8px rgba(99, 102, 241, 0.08),
+      0 1px 0 rgba(255, 255, 255, 0.9) inset,
+      0 -1px 0 rgba(99, 102, 241, 0.08) inset;
   }
 
   /* Enhanced 3D glow effects */

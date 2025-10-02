@@ -23,7 +23,7 @@ import {
   LogOut
 } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
-import sahayakLogo from 'figma:asset/ee34849bbf5032b758a6d0077d24954519944451.png';
+import sahayakLogo from '../../assets/ee34849bbf5032b758a6d0077d24954519944451.png';
 
 export function TeacherSidebar() {
   const { user, logout } = React.useContext(AuthContext);

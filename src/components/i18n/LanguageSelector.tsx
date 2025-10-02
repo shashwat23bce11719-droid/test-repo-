@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu';
 import { useLanguage, Language } from './LanguageContext';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 export function LanguageSelector() {
   const { language, setLanguage, t } = useLanguage();
