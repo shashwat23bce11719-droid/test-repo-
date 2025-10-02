@@ -8,20 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Separator } from '../ui/separator';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { toast } from 'sonner';
-import { 
-  MessageCircle, 
-  Send, 
-  Search, 
-  Filter, 
-  Clock, 
-  CheckCircle, 
-  AlertCircle, 
-  Sparkles,
-  User,
-  Bot,
-  ThumbsUp,
-  ThumbsDown
-} from 'lucide-react';
+import { MessageCircle, Send, Search, ListFilter as Filter, Clock, CircleCheck as CheckCircle, CircleAlert as AlertCircle, Sparkles, User, Bot, ThumbsUp, ThumbsDown } from 'lucide-react';
 
 export function DoubtSolverAI() {
   const [selectedDoubt, setSelectedDoubt] = useState<any>(null);

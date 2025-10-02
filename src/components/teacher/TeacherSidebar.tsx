@@ -13,15 +13,7 @@ import {
 } from '../ui/sidebar';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Button } from '../ui/button';
-import { 
-  Home,
-  FileText, 
-  Sparkles, 
-  BarChart3, 
-  HelpCircle, 
-  Calendar,
-  LogOut
-} from 'lucide-react';
+import { Hop as Home, FileText, Sparkles, ChartBar as BarChart3, Circle as HelpCircle, Calendar, LogOut } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import sahayakLogo from '../../assets/ee34849bbf5032b758a6d0077d24954519944451.png';
 

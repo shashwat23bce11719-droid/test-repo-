@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import { Plus, Users, FileText, TrendingUp, Clock, Settings, UserPlus, Calendar, MoreVertical } from 'lucide-react';
+import { Plus, Users, FileText, TrendingUp, Clock, Settings, UserPlus, Calendar, MoveVertical as MoreVertical } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '../ui/dialog';
 import { Input } from '../ui/input';
