@@ -13,7 +13,7 @@ import {
 } from '../ui/sidebar';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Button } from '../ui/button';
-import { Home, User, FileText, HelpCircle, BarChart3, Calendar, LogOut } from 'lucide-react';
+import { Hop as Home, User, FileText, Circle as HelpCircle, ChartBar as BarChart3, Calendar, LogOut } from 'lucide-react';
 
 export function StudentSidebar() {
   const { user, logout } = React.useContext(AuthContext);
