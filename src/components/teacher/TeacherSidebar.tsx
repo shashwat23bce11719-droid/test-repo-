@@ -13,9 +13,8 @@ import {
 } from '../ui/sidebar';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Button } from '../ui/button';
-import { Hop as Home, FileText, Sparkles, ChartBar as BarChart3, Circle as HelpCircle, Calendar, LogOut } from 'lucide-react';
+import { Home, FileText, Sparkles, BarChart3, HelpCircle, Calendar, LogOut } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
-import sahayakLogo from '../../assets/ee34849bbf5032b758a6d0077d24954519944451.png';
 
 export function TeacherSidebar() {
   const { user, logout } = React.useContext(AuthContext);
@@ -63,20 +62,16 @@ export function TeacherSidebar() {
 
   return (
     <Sidebar className="sidebar-gradient">
-      <SidebarHeader className="border-b-2 border-gradient-to-r from-purple-200 to-blue-200 gradient-bg-subtle">
-        <div className="flex items-center gap-3 px-4 py-4">
-          <div className="h-14 w-14 rounded-xl overflow-hidden shadow-xl ring-3 ring-purple-300 animate-pulse-color">
-            <img 
-              src={sahayakLogo} 
-              alt="Sahayak AI" 
-              className="h-full w-full object-contain"
-            />
+      <SidebarHeader className="border-b border-sidebar-border">
+        <div className="flex items-center gap-3 px-4 py-5">
+          <div className="h-10 w-10 rounded-lg bg-primary flex items-center justify-center">
+            <span className="text-white font-bold text-xl">S</span>
           </div>
           <div className="grid flex-1 text-left leading-tight">
-            <span className="truncate font-bold text-lg bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">{t('app.title')} ✨</span>
-            <span className="truncate text-sm text-sidebar-foreground/80 font-semibold">🎓 {t('teacher.dashboard.title')}</span>
+            <span className="truncate font-semibold text-base text-sidebar-foreground">{t('app.title')}</span>
+            <span className="truncate text-xs text-muted-foreground">{t('teacher.dashboard.title')}</span>
           </div>
-          <SidebarTrigger className="-mr-1 hover-scale" />
+          <SidebarTrigger className="-mr-1" />
         </div>
       </SidebarHeader>
       
@@ -105,10 +100,10 @@ export function TeacherSidebar() {
       </SidebarContent>
       
       <SidebarFooter className="border-t border-sidebar-border p-4">
-        <div className="flex items-center gap-3 mb-4">
-          <Avatar className="h-10 w-10">
+        <div className="flex items-center gap-3 mb-3">
+          <Avatar className="h-9 w-9">
             <AvatarImage src="" alt={user?.name} />
-            <AvatarFallback className="bg-primary text-primary-foreground">
+            <AvatarFallback className="bg-primary/10 text-primary font-medium text-sm">
               {user?.name?.split(' ').map(n => n[0]).join('').toUpperCase()}
             </AvatarFallback>
           </Avatar>
@@ -116,17 +111,17 @@ export function TeacherSidebar() {
             <p className="text-sm font-medium text-sidebar-foreground truncate">
               {user?.name}
             </p>
-            <p className="text-xs text-sidebar-foreground/70 truncate">
+            <p className="text-xs text-muted-foreground truncate">
               {user?.classInfo || 'Teacher'}
             </p>
           </div>
         </div>
-        
-        <Button 
-          variant="outline" 
-          size="sm" 
+
+        <Button
+          variant="outline"
+          size="sm"
           onClick={handleLogout}
-          className="w-full justify-start"
+          className="w-full justify-start h-9"
         >
           <LogOut className="h-4 w-4 mr-2" />
           {t('nav.logout')}

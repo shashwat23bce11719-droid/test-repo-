@@ -201,13 +201,13 @@ export function StudentDashboardHome() {
       title: 'Math Star',
       description: 'Scored 90+ in 3 consecutive assignments',
       date: '2 days ago',
-      icon: '⭐'
+      icon: Trophy
     },
     {
       title: 'Quick Learner',
       description: 'Completed 5 assignments this week',
       date: '1 week ago',
-      icon: '🚀'
+      icon: CheckCircle
     }
   ];
 
@@ -215,15 +215,13 @@ export function StudentDashboardHome() {
     <div className={`space-y-6 ${animationClass}`}>
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <div className="slide-in-left">
-          <h1>
-            <span className="animate-gradient-text">Welcome back, {user?.name?.split(' ')[0]}!</span>
-          </h1>
-          <p className="text-muted-foreground mt-1">
+        <div>
+          <h1 className="text-2xl font-bold text-foreground">Welcome back, {user?.name?.split(' ')[0]}</h1>
+          <p className="text-muted-foreground mt-2">
             Ready to continue your learning journey today?
           </p>
         </div>
-        <Button asChild className="btn-3d gradient-bg hover-glow ripple-effect slide-in-right">
+        <Button asChild className="gradient-bg">
           <Link to="/student/doubts">
             <MessageCircle className="h-4 w-4 mr-2" />
             Ask a Question
@@ -240,32 +238,31 @@ export function StudentDashboardHome() {
             return (
               <Dialog key={index} open={isScheduleDialogOpen} onOpenChange={setIsScheduleDialogOpen}>
                 <DialogTrigger asChild>
-                  <Card 
-                    className="card-effect hover-lift card-tilt transition-all duration-300 cursor-pointer aspect-square glass-effect magnetic-hover"
-                    style={{ animationDelay: `${index * 0.1}s` }}
+                  <Card
+                    className="card-effect hover-lift cursor-pointer"
                   >
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
-                      <CardTitle className="text-sm font-medium">
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                      <CardTitle className="text-sm font-medium text-muted-foreground">
                         {stat.title}
                       </CardTitle>
-                      <div className={`h-10 w-10 ${stat.color} rounded-lg flex items-center justify-center btn-3d animate-bounce-gentle`}>
-                        <Icon className="h-5 w-5 text-white animate-breathe" />
+                      <div className={`h-10 w-10 ${stat.color} rounded-lg flex items-center justify-center`}>
+                        <Icon className="h-5 w-5 text-white" />
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold animate-gradient-text">
+                      <div className="text-2xl font-bold text-foreground">
                         {stat.value}
                       </div>
                     </CardContent>
                   </Card>
                 </DialogTrigger>
-                <DialogContent className="sm:max-w-lg glass-effect">
+                <DialogContent className="sm:max-w-lg">
                   <DialogHeader>
                     <DialogTitle className="flex items-center gap-3">
-                      <div className="h-10 w-10 gradient-bg-purple rounded-lg flex items-center justify-center btn-3d animate-breathe">
+                      <div className="h-10 w-10 gradient-bg rounded-lg flex items-center justify-center">
                         <Calendar className="h-5 w-5 text-white" />
                       </div>
-                      <span className="animate-gradient-text">Today's Full Schedule</span>
+                      <span className="text-xl font-semibold">Today's Schedule</span>
                     </DialogTitle>
                     <DialogDescription>
                       Your complete schedule for today, {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
@@ -273,10 +270,10 @@ export function StudentDashboardHome() {
                   </DialogHeader>
                   <div className="space-y-4 max-h-96 overflow-y-auto">
                     {todaySchedule.map((item, index) => (
-                      <div key={index} className={`p-4 rounded-lg border glass-effect hover-lift transition-all duration-300 ${item.type === 'break' ? 'bg-muted/50' : 'bg-card'}`}>
+                      <div key={index} className={`p-4 rounded-lg border hover-lift transition-all duration-200 ${item.type === 'break' ? 'bg-muted/30' : 'bg-card'}`}>
                         {item.type === 'break' ? (
                           <div className="flex items-center gap-3">
-                            <div className="w-3 h-3 bg-muted-foreground rounded-full animate-pulse-color"></div>
+                            <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
                             <div>
                               <h3 className="font-medium text-muted-foreground">{item.subject}</h3>
                               <p className="text-sm text-muted-foreground">{item.time}</p>
@@ -284,19 +281,23 @@ export function StudentDashboardHome() {
                           </div>
                         ) : (
                           <div className="flex items-start gap-3">
-                            <div className="w-3 h-3 bg-primary rounded-full mt-2 animate-pulse-color"></div>
+                            <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
                             <div className="flex-1">
                               <div className="flex justify-between items-start mb-1">
-                                <h3 className="font-medium">{item.subject}</h3>
-                                <Badge variant="outline" className="text-xs animate-pulse-color">
+                                <h3 className="font-semibold">{item.subject}</h3>
+                                <Badge variant="outline" className="text-xs">
                                   {item.status}
                                 </Badge>
                               </div>
                               <p className="text-sm text-muted-foreground mb-1">{item.teacher}</p>
-                              <p className="text-sm font-medium text-primary mb-1">{item.time}</p>
+                              <p className="text-sm font-medium text-primary mb-2">{item.time}</p>
                               <div className="flex gap-4 text-sm text-muted-foreground">
-                                <span>📍 {item.room}</span>
-                                <span>📚 {item.topic}</span>
+                                <span className="flex items-center gap-1">
+                                  <span className="font-medium">Room:</span> {item.room}
+                                </span>
+                                <span className="flex items-center gap-1">
+                                  <span className="font-medium">Topic:</span> {item.topic}
+                                </span>
                               </div>
                             </div>
                           </div>
@@ -305,7 +306,7 @@ export function StudentDashboardHome() {
                     ))}
                   </div>
                   <div className="flex justify-end">
-                    <Button variant="outline" onClick={() => setIsScheduleDialogOpen(false)} className="btn-3d glass-effect">
+                    <Button variant="outline" onClick={() => setIsScheduleDialogOpen(false)}>
                       Close
                     </Button>
                   </div>
@@ -347,9 +348,9 @@ export function StudentDashboardHome() {
 
       <div className="grid lg:grid-cols-2 gap-6">
         {/* Recent Assignments */}
-        <Card className="glass-effect card-tilt hover-lift slide-in-left">
+        <Card className="card-effect hover-lift">
           <CardHeader>
-            <CardTitle className="animate-gradient-text">Recent Assignments</CardTitle>
+            <CardTitle>Recent Assignments</CardTitle>
             <CardDescription>
               Your latest assignments and their status
             </CardDescription>
@@ -389,11 +390,11 @@ export function StudentDashboardHome() {
         </Card>
 
         {/* Join New Class */}
-        <Card className="glass-effect card-tilt hover-lift slide-in-right">
+        <Card className="card-effect hover-lift">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <GraduationCap className="h-5 w-5 animate-breathe" />
-              <span className="animate-gradient-text">Join New Class</span>
+              <GraduationCap className="h-5 w-5" />
+              <span>My Classes</span>
             </CardTitle>
             <CardDescription>
               Your enrolled classes and join new ones
@@ -425,18 +426,18 @@ export function StudentDashboardHome() {
             
             <Dialog open={isJoinDialogOpen} onOpenChange={setIsJoinDialogOpen}>
               <DialogTrigger asChild>
-                <Button variant="outline" className="w-full btn-3d glass-effect hover-glow ripple-effect">
+                <Button variant="outline" className="w-full">
                   <Plus className="h-4 w-4 mr-2" />
                   Join New Class
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-md glass-effect">
+              <DialogContent className="sm:max-w-md">
                 <DialogHeader>
                   <DialogTitle className="flex items-center gap-3">
-                    <div className="h-10 w-10 gradient-bg rounded-lg flex items-center justify-center btn-3d animate-breathe">
+                    <div className="h-10 w-10 gradient-bg rounded-lg flex items-center justify-center">
                       <GraduationCap className="h-5 w-5 text-white" />
                     </div>
-                    <span className="animate-gradient-text">Join New Class</span>
+                    <span className="text-xl font-semibold">Join New Class</span>
                   </DialogTitle>
                   <DialogDescription>
                     Enter the Class ID provided by your teacher to join a new class.
@@ -452,7 +453,7 @@ export function StudentDashboardHome() {
                       placeholder="Enter Class ID (e.g., MATH101)"
                       value={classId}
                       onChange={(e) => setClassId(e.target.value)}
-                      className="glass-effect transition-all duration-300 focus:shadow-lg focus:shadow-primary/20"
+                      className="transition-all duration-200"
                       onKeyDown={(e) => {
                         if (e.key === 'Enter') {
                           handleJoinClass();
@@ -464,14 +465,14 @@ export function StudentDashboardHome() {
                     <Button
                       variant="outline"
                       onClick={() => setIsJoinDialogOpen(false)}
-                      className="btn-3d glass-effect"
+                      className=""
                     >
                       Cancel
                     </Button>
                     <Button 
                       onClick={handleJoinClass}
                       disabled={isJoiningClass}
-                      className="btn-3d gradient-bg hover-glow"
+                      className="gradient-bg"
                     >
                       <Plus className="h-4 w-4 mr-2" />
                       {isJoiningClass ? 'Joining...' : 'Join Class'}
@@ -486,9 +487,9 @@ export function StudentDashboardHome() {
 
       <div className="grid lg:grid-cols-2 gap-6">
         {/* Learning Progress */}
-        <Card className="glass-effect card-tilt hover-lift slide-in-left">
+        <Card className="card-effect hover-lift">
           <CardHeader>
-            <CardTitle className="animate-gradient-text">Learning Progress</CardTitle>
+            <CardTitle>Learning Progress</CardTitle>
             <CardDescription>
               Your progress across different topics
             </CardDescription>
@@ -500,36 +501,41 @@ export function StudentDashboardHome() {
                   <span className="text-sm font-medium">{item.subject}</span>
                   <span className="text-sm text-muted-foreground">{item.progress}%</span>
                 </div>
-                <Progress value={item.progress} className="h-2 shimmer" />
+                <Progress value={item.progress} className="h-2" />
               </div>
             ))}
           </CardContent>
         </Card>
 
         {/* Recent Achievements */}
-        <Card className="glass-effect card-tilt hover-lift slide-in-right">
+        <Card className="card-effect hover-lift">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Trophy className="h-5 w-5 text-yellow-500 animate-breathe" />
-              <span className="animate-gradient-text">Recent Achievements</span>
+              <Trophy className="h-5 w-5 text-amber-500" />
+              <span>Recent Achievements</span>
             </CardTitle>
             <CardDescription>
               Your latest accomplishments
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            {recentAchievements.map((achievement, index) => (
-              <div key={index} className="flex items-start gap-3 p-3 bg-muted/50 rounded-lg glass-effect hover-lift transition-all duration-300 magnetic-hover">
-                <div className="text-2xl">{achievement.icon}</div>
+            {recentAchievements.map((achievement, index) => {
+              const AchievementIcon = achievement.icon;
+              return (
+              <div key={index} className="flex items-start gap-3 p-3 bg-muted/30 rounded-lg hover-lift transition-all duration-200">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <AchievementIcon className="h-5 w-5 text-primary" />
+                </div>
                 <div className="flex-1">
-                  <h3 className="font-medium">{achievement.title}</h3>
+                  <h3 className="font-semibold">{achievement.title}</h3>
                   <p className="text-sm text-muted-foreground mb-1">
                     {achievement.description}
                   </p>
                   <p className="text-xs text-muted-foreground">{achievement.date}</p>
                 </div>
               </div>
-            ))}
+            );
+            })}
             
             <Button variant="outline" className="w-full btn-3d glass-effect hover-glow">
               View All Achievements
@@ -539,9 +545,9 @@ export function StudentDashboardHome() {
       </div>
 
       {/* Quick Actions */}
-      <Card className="glass-effect card-tilt hover-lift slide-in-left">
+      <Card className="card-effect hover-lift">
         <CardHeader>
-          <CardTitle className="animate-gradient-text">Quick Actions</CardTitle>
+          <CardTitle>Quick Actions</CardTitle>
           <CardDescription>
             Things you can do right now
           </CardDescription>

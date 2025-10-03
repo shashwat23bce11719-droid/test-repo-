@@ -13,8 +13,7 @@ import {
 } from '../ui/sidebar';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Button } from '../ui/button';
-import { Hop as Home, User, BookOpen, MessageCircle, Trophy, Calendar, LogOut } from 'lucide-react';
-import sahayakLogo from '../../assets/ee34849bbf5032b758a6d0077d24954519944451.png';
+import { Home, User, FileText, HelpCircle, BarChart3, Calendar, LogOut } from 'lucide-react';
 
 export function StudentSidebar() {
   const { user, logout } = React.useContext(AuthContext);
@@ -38,19 +37,19 @@ export function StudentSidebar() {
       icon: User,
     },
     {
-      title: 'My Assignments',
+      title: 'Assignments',
       url: '/student/assignments',
-      icon: BookOpen,
+      icon: FileText,
     },
     {
-      title: 'Ask Doubt',
+      title: 'Ask Question',
       url: '/student/doubts',
-      icon: MessageCircle,
+      icon: HelpCircle,
     },
     {
-      title: 'My Progress',
+      title: 'Progress',
       url: '/student/progress',
-      icon: Trophy,
+      icon: BarChart3,
     },
     {
       title: 'Schedule',
@@ -61,20 +60,16 @@ export function StudentSidebar() {
 
   return (
     <Sidebar className="sidebar-gradient">
-      <SidebarHeader className="border-b-2 border-gradient-to-r from-purple-200 to-pink-200 gradient-bg-subtle">
-        <div className="flex items-center gap-3 px-4 py-4">
-          <div className="h-14 w-14 rounded-xl overflow-hidden shadow-xl ring-3 ring-pink-300 animate-pulse-color">
-            <img 
-              src={sahayakLogo} 
-              alt="Sahayak AI" 
-              className="h-full w-full object-contain"
-            />
+      <SidebarHeader className="border-b border-sidebar-border">
+        <div className="flex items-center gap-3 px-4 py-5">
+          <div className="h-10 w-10 rounded-lg bg-primary flex items-center justify-center">
+            <span className="text-white font-bold text-xl">S</span>
           </div>
           <div className="grid flex-1 text-left leading-tight">
-            <span className="truncate font-bold text-lg bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Sahayak AI ✨</span>
-            <span className="truncate text-sm text-sidebar-foreground/80 font-semibold">🎒 Student Portal</span>
+            <span className="truncate font-semibold text-base text-sidebar-foreground">Sahayak AI</span>
+            <span className="truncate text-xs text-muted-foreground">Student Portal</span>
           </div>
-          <SidebarTrigger className="-mr-1 hover-scale" />
+          <SidebarTrigger className="-mr-1" />
         </div>
       </SidebarHeader>
       
@@ -103,10 +98,10 @@ export function StudentSidebar() {
       </SidebarContent>
       
       <SidebarFooter className="border-t border-sidebar-border p-4">
-        <div className="flex items-center gap-3 mb-4">
-          <Avatar className="h-10 w-10">
+        <div className="flex items-center gap-3 mb-3">
+          <Avatar className="h-9 w-9">
             <AvatarImage src="" alt={user?.name} />
-            <AvatarFallback className="bg-primary text-primary-foreground">
+            <AvatarFallback className="bg-primary/10 text-primary font-medium text-sm">
               {user?.name?.split(' ').map(n => n[0]).join('').toUpperCase()}
             </AvatarFallback>
           </Avatar>
@@ -114,17 +109,17 @@ export function StudentSidebar() {
             <p className="text-sm font-medium text-sidebar-foreground truncate">
               {user?.name}
             </p>
-            <p className="text-xs text-sidebar-foreground/70 truncate">
+            <p className="text-xs text-muted-foreground truncate">
               {user?.grade || 'Student'}
             </p>
           </div>
         </div>
-        
-        <Button 
-          variant="outline" 
-          size="sm" 
+
+        <Button
+          variant="outline"
+          size="sm"
           onClick={handleLogout}
-          className="w-full justify-start"
+          className="w-full justify-start h-9"
         >
           <LogOut className="h-4 w-4 mr-2" />
           Logout
